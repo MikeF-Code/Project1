@@ -5,4 +5,5 @@ A rich itinerary builder webapp that utilizes Google Maps, Foursquare, and Yelp 
 Possible Features to be added:
 
 *restaurant reservations via OpenTable*
+
 *hotel and flight booking via Kayak*
