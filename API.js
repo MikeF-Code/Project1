@@ -4,7 +4,6 @@
 // Yelp ajax request
 function yelpRestaurantData() {
 
-
 var location= "Bronx"; /* change to the html element that grabs the destination from the table on the display page */
 var Yapikey= "XwSkYev9Zx9I3uRA2EHdtKjbR2N75aL483Khjs9T4dmaQbU0gaZyCPuOzCo_mpgyEMCNUlJNae06jMoHPQggFTKvM5Zxn4hoaBWws_TclBie18PHGlCD4MyG_-XiW3Yx";
 var queryURL = "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?location=" + location + "&term=restaurants&radius=20000&limit=10";
@@ -19,27 +18,35 @@ console.log(queryURL);
       }).then(function(response) {
         console.log(response);
 
+        // creating div for restuarant list
+        var restaurantDiv = $("#restaurantDiv");
+        // adding the header to the div
+        var restaurantHeading = $("<h3>Top 10 Popular Restaurants</h3>");
+        restaurantDiv.append(restaurantHeading);
         // Generates a list of 10 Restaurants
         for (var i = 0; i < 10; i++){
+            // stores the restaurant's name
             var responseData = response.businesses[i].name;
-            $("#restList").append(responseData)
-            console.log(responseData)
-        }      
-    })
-
-}
-yelpRestaurantData();
-
-// click function storing each restaurnts info to be displayed once clicked
-$(document).on("click", function(event){
-    // prevents the items from displaying their stored data
-    event.preventDefault();
-    displayInfo()
-
-});
+            // creating a p tag element
+            var list = $("<p>")
+            // add class to p tag
+            list.addClass("restaurant-link");
+            // add data attribute
+            list.attr("data-name", responseData);
+            // providing the p tags text
+            list.text(responseData);
+            console.log(responseData); 
+            
+                
+            // adding the list to the div
+            restaurantDiv.append(list);
+        }
+        // click function storing each restaurnts info to be displayed once clicked
+$(document).on("click", ".restaurant-link", displayRestaurantData);
 
 //once click should display a bubble holding info
 function displayRestaurantData(){
+
 // creating a div to hold the restaurant name
 var restaurants = $("<div class='topRest'>");
 var restName = response.businesses[0].name;
@@ -71,7 +78,15 @@ console.log("Rating: ", restRating);
 var rating = $("<p>").text("Rating: ", restRating);
 // appends the restuarant's rating 
 restaurants.append(rating);
+
+$(".restaurant-link").append(restaurants)
+}      
+})
+
 }
+yelpRestaurantData();
+
+
 
  
 // Yelp function for the top 10 Events List 
@@ -93,25 +108,37 @@ function yelpEventData() {
           }).then(function(response) {
             console.log(response);
             
+            // creating div for event list
+            var eventDiv = $("#eventDiv");
+            // adding the header to the div
+            var eventHeading = $("<h3>Top 10 Popular Attractions</h3>");
+            eventDiv.append(eventHeading);
+
             for (var i = 0; i < 10; i++){
+                // stores the restaurant's name
                 var responseData = response.businesses[i].name;
-                $("#eventList").append(responseData)
-                console.log(responseData)
+                // creating a p tag element
+                var list = $("<p>")
+                // add class to p tag
+                list.addClass("event-link");
+                // add data attribute
+                list.attr("data-name", responseData);
+                // providing the p tags text
+                list.text(responseData);
+                console.log(responseData)     
+                // adding the list to the div
+                eventDiv.append(list);
             }
         });
     }   
     // calls function to display the list      
     yelpEventData();
 
-$(document).on("click", function(event){
-    // prevents the items from displaying their stored data
-    event.preventDefault();
-    displayEventData()
-
-})
+// click function to display each event's info
+$(document).on("click", ".event-link", displayEventData);
 
 function displayEventData(){
-    // click function to display each event's info
+
     // creating a div to hold the event name
     var event = $("<div class='topEvent'>");
     var eventName = response.businesses[i].name;
