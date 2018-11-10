@@ -1,3 +1,7 @@
+$(window).on('load',function(){
+    $('#startupModal').modal('show');
+});
+
 $(document).ready( function () {
 
     var config = {
@@ -8,8 +12,7 @@ $(document).ready( function () {
         storageBucket: "project1-test-triptracker.appspot.com",
         messagingSenderId: "158304705795"
     };
-    firebase.initializeApp(config);
-    
+    firebase.initializeApp(config);    
     
     // Event listener for translating user input data into the Trip Planner Entries (TPE) card
     $("#entrySubmit").on("click", function(event) {
@@ -34,7 +37,7 @@ $(document).ready( function () {
 
         // Creating new entries for the TPE card
         var newEntry = $("<tr>");
-        $("#newEntryList2").append(newEntry);
+        $("#newEntryList").append(newEntry);
 
         // Summited info is converted to be displayed in TPE card
         var destEntryItem = $("<th>").text(dest);
@@ -58,7 +61,17 @@ $(document).ready( function () {
         newEntry.append(eDateEntryItem);
         newEntry.append(eTimeEntryItem);
         newEntry.append(pMembersEntryItem);
-    })
+    });
+
+    $("#showDiv").on("click", function (){
+        var x = document.getElementById("activeDiv");
+        
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    });
 
 
 });
