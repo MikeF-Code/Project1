@@ -29,14 +29,32 @@
           <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
         </div>
         <div class="form-group">
-            <label for="startDate">Start Date</label>
-            <input id="datepicker1" type="text" width="276" />
-            <script>$('#datepicker1').datepicker({uiLibrary: 'bootstrap4'});</script>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="startDate">Start Date</label>
+                    <input id="datepicker1" type="text" width="276" />
+                    <script>$('#datepicker1').datepicker({uiLibrary: 'bootstrap4'});</script>
+                </div>
+                <div class="col-md-6">
+                    <label for="startTime">Start Time</label>
+                    <input id="timepicker1" width="276" />
+                    <script>$('#timepicker1').timepicker();</script>
+                </div>
+            </div>
         </div>
         <div class="form-group">
-            <label for="endDate">End Date</label>
-            <input id="datepicker2" type="text" width="276" />
-            <script>$('#datepicker2').datepicker({uiLibrary: 'bootstrap4'});</script>            
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="endDate">End Date</label>
+                    <input id="datepicker2" type="text" width="276" />
+                    <script>$('#datepicker2').datepicker({uiLibrary: 'bootstrap4'});</script>
+                </div>
+                <div class="col-md-6">
+                    <label for="endTime">End Time</label>
+                    <input id="timepicker2" width="276" />
+                    <script>$('#timepicker2').timepicker();</script>
+                </div>
+            </div>            
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">List party member(s)</label>
@@ -56,7 +74,9 @@
                 <tr>
                   <th scope="col">Destination</th>
                   <th scope="col">Start Date</th>
+                  <th scope="col">Start Time</th>
                   <th scope="col">End Date</th>
+                  <th scope="col">End Time</th>
                   <th scope="col">Party Members</th>
                 </tr>
             </thead>
@@ -80,7 +100,9 @@
                     <tr>
                         <th scope="col">Destination</th>
                         <th scope="col">Start Date</th>
+                        <th scope="col">Start Time</th>
                         <th scope="col">End Date</th>
+                        <th scope="col">End Time</th>
                         <th scope="col">Party Members</th>
                     </tr>
                 </thead>
@@ -89,6 +111,7 @@
             </table>            
             </div>
             <div class="modal-footer">
+            <a href="https://www.google.com"><button type="button" class="btn btn-primary">Go to Itinerary Builder Page</button></a>
             <button type="button" class="btn btn-default " data-dismiss="modal">Close</button>
             </div>                    
         </div>

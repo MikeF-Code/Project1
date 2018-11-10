@@ -15,17 +15,22 @@ $(document).ready( function () {
     $("#entrySubmit").on("click", function(event) {
         event.preventDefault();
         
-        var format = "MM/DD/YYYY";
+        var dateFormat = "MM/DD/YYYY";
+        var timeFormat = "h:mm";
 
         // Entries in the form are stored in variables
         var dest = $("#destInput").val().trim();
         var sDate = $("#datepicker1").val().trim();
         var eDate = $("#datepicker2").val().trim();
+        var sTime = $("#timepicker1").val().trim();
+        var eTime = $("#timepicker2").val().trim();
         var pMembers = $("#party-members").val().trim();
 
-        // Reconverts date format using momentJS
-        var startD = moment(sDate, format).format("MMM Do YYYY");
-        var endD = moment(eDate, format).format("MMM Do YYYY");
+        // Reconverts date & time format using momentJS
+        var startD = moment(sDate, dateFormat).format("MMM Do YYYY");
+        var endD = moment(eDate, dateFormat).format("MMM Do YYYY");
+        var startT = moment(sTime, timeFormat).format("LT");        
+        var endT = moment(eTime, timeFormat).format("LT");
 
         // Creating new entries for the TPE card
         var newEntry = $("<tr>");
@@ -34,18 +39,24 @@ $(document).ready( function () {
         // Summited info is converted to be displayed in TPE card
         var destEntryItem = $("<th>").text(dest);
         var sDateEntryItem = $("<th>").text(startD);
-        var eDatentryItem = $("<th>").text(endD);
+        var sTimeEntryItem = $("<th>").text(startT);
+        var eDateEntryItem = $("<th>").text(endD);
+        var eTimeEntryItem = $("<th>").text(endT);
         var pMembersEntryItem = $("<th>").text(pMembers);
         
         destEntryItem.attr("scope", "col");
         sDateEntryItem.attr("scope", "col");
-        eDatentryItem.attr("scope", "col");
+        sTimeEntryItem.attr("scope", "col");
+        eDateEntryItem.attr("scope", "col");
+        eTimeEntryItem.attr("scope", "col");
         pMembersEntryItem.attr("scope", "col");
 
         // Submitted info appended to the new entry for the TPE card
         newEntry.append(destEntryItem);
         newEntry.append(sDateEntryItem);
-        newEntry.append(eDatentryItem);
+        newEntry.append(sTimeEntryItem);
+        newEntry.append(eDateEntryItem);
+        newEntry.append(eTimeEntryItem);
         newEntry.append(pMembersEntryItem);
     })
 
