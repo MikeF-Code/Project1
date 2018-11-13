@@ -24,9 +24,8 @@
     <div class="card text-black bg-light p-3 mx-auto mt-5" style="max-width: 80rem;">
     <form>
         <div class="form-group">
-          <label for="exampleInputEmail1">Search for Destinations</label>
+          <label for="inputDestination">Search for Destinations</label>
           <input type="text" class="form-control" id="destInput" aria-describedby="emailHelp" placeholder="Search destinations...">
-          <!--<small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
         </div>
         <div class="form-group">
             <div class="row">
@@ -57,14 +56,14 @@
             </div>            
         </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">List party member(s)</label>
-            <textarea type="text" class="form-control" id="party-members" rows="6" placeholder="Separate members with commas..."></textarea>
-        </div>
-        <div class="form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">I understand this</label>
-        </div>
+            <label for="no-of-party-members"># of party member(s)</label>
+            <input type="number" class="form-control" id="party-members"/>
+        </div>        
         <button type="submit" class="btn btn-primary mt-3" id="entrySubmit">Submit</button>
+        <div class="form-group">
+            <input type="text" class="form-control mt-4" id="ID-Input" placeholder="Type existing ID...">            
+        </div>
+        <button type="button" class="btn btn-secondary" id="load-entry">Load Existing Entry</button>
       </form>
     </div>
     <div class="card text-black bg-light p-3 mx-auto mt-2 mb-5" style="max-width: 80rem;">
