@@ -1,4 +1,14 @@
+<<<<<<< HEAD
 var config = {
+=======
+$(window).on('load',function(){
+    $('#startupModal').modal('show');
+});
+
+$(document).ready( function () {
+
+    var config = {
+>>>>>>> 5ed8067d551fc7bc7a5a263c3c668461fb96ee9b
         apiKey: "AIzaSyAGAhaC7nIXYdXfql1p3bpjPT8vCfQaAxQ",
         authDomain: "project1-test-triptracker.firebaseapp.com",
         databaseURL: "https://project1-test-triptracker.firebaseio.com",
@@ -6,6 +16,7 @@ var config = {
         storageBucket: "project1-test-triptracker.appspot.com",
         messagingSenderId: "158304705795"
     };
+<<<<<<< HEAD
     firebase.initializeApp(config);
 
 $(document).ready( function () {    
@@ -19,6 +30,10 @@ $(document).ready( function () {
 });    
     
 function createDestData() {
+=======
+    firebase.initializeApp(config);    
+    
+>>>>>>> 5ed8067d551fc7bc7a5a263c3c668461fb96ee9b
     // Event listener for translating user input data into the Trip Planner Entries (TPE) card
     $("#entrySubmit").on("click", function(event) {
         event.preventDefault();
@@ -42,7 +57,7 @@ function createDestData() {
 
         // Creating new entries for the TPE card
         var newEntry = $("<tr>");
-        $("#newEntryList2").append(newEntry);
+        $("#newEntryList").append(newEntry);
 
         var newEntryData = {
             dest: dest,
@@ -77,6 +92,20 @@ function createDestData() {
         newEntry.append(eDateEntryItem);
         newEntry.append(eTimeEntryItem);
         newEntry.append(pMembersEntryItem);
+<<<<<<< HEAD
+=======
+    });
+
+    $("#showDiv").on("click", function (){
+        var x = document.getElementById("activeDiv");
+        
+        if (x.style.display === "none") {
+            x.style.display = "block";
+        } else {
+            x.style.display = "none";
+        }
+    });
+>>>>>>> 5ed8067d551fc7bc7a5a263c3c668461fb96ee9b
 
         $("#destInput").val('');
         $("#datepicker1").val('');
